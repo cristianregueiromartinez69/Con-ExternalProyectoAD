@@ -1,4 +1,4 @@
-package com.cristianProyectoAD.con_external.dto;
+package com.cristianProyectoAD.con_external.registrosLibros.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package com.cristianProyectoAD.con_external.controlador;
+package com.cristianProyectoAD.con_external.registrosLibros.controlador;
 
-import com.cristianProyectoAD.con_external.dto.LibroDto;
-import com.cristianProyectoAD.con_external.servicio.LibroService;
+import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
+import com.cristianProyectoAD.con_external.registrosLibros.servicio.LibroService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,8 +1,7 @@
-package com.cristianProyectoAD.con_external.servicio;
+package com.cristianProyectoAD.con_external.registrosLibros.servicio;
 
-import com.cristianProyectoAD.con_external.dto.LibroDto;
-import com.cristianProyectoAD.con_external.servicio_comunicacion.PrdRexClient;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
+import com.cristianProyectoAD.con_external.registrosLibros.servicio_comunicacion.PrdRexClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
