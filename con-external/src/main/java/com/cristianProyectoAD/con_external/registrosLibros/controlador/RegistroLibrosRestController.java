@@ -1,3 +1,4 @@
+
 package com.cristianProyectoAD.con_external.registrosLibros.controlador;
 
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("bookhub/libros")
+@RequestMapping("/bookhub/libros")
 public class RegistroLibrosRestController {
 
     private final LibroService libroService;
@@ -18,7 +19,7 @@ public class RegistroLibrosRestController {
         this.libroService = libroService;
     }
 
-    @PostMapping
+    @PostMapping("/registro")
     public ResponseEntity<String> registroControllerLibros(@RequestBody LibroDto libroDto) {
         return libroService.registrarLibro(libroDto);
     }
