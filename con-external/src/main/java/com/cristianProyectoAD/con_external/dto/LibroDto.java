@@ -1,19 +1,27 @@
 package com.cristianProyectoAD.con_external.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
 public class LibroDto {
 
+    @NotBlank
     private String isbn;
+    @NotBlank
     private String nombre;
+    @NotBlank
     private String autor;
-    private String fechaLectura;
-    private String fechaRegistro;
+    @NotBlank
+    private LocalDate fechaLectura;
+    @NotBlank
+    private LocalDate fechaRegistro;
 
-    public LibroDto(String isbn, String nombre, String autor, String fechaLectura, String fechaRegistro) {
+    public LibroDto(String isbn, String nombre, String autor, LocalDate fechaLectura, LocalDate fechaRegistro) {
         this.isbn = isbn;
         this.nombre = nombre;
         this.autor = autor;
