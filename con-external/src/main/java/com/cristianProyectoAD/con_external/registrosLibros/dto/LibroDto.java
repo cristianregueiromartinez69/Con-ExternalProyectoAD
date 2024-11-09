@@ -6,8 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
 public class LibroDto {
 
     @NotBlank
@@ -32,5 +31,43 @@ public class LibroDto {
     public LibroDto() {
     }
 
+    public @NotBlank String getIsbn() {
+        return isbn;
+    }
 
+    public void setIsbn(@NotBlank String isbn) {
+        this.isbn = isbn;
+    }
+
+    public @NotBlank LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(@NotBlank LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public @NotBlank String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(@NotBlank String nombre) {
+        this.nombre = nombre;
+    }
+
+    public @NotBlank String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(@NotBlank String autor) {
+        this.autor = autor;
+    }
+
+    public @NotBlank LocalDate getFechaLectura() {
+        return fechaLectura;
+    }
+
+    public void setFechaLectura(@NotBlank LocalDate fechaLectura) {
+        this.fechaLectura = fechaLectura;
+    }
 }
