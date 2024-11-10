@@ -26,6 +26,7 @@ public class RegistroLibrosRestController {
 
     /**
      * Constructor de la clase
+     *
      * @param libroService el servicio de libros
      */
     public RegistroLibrosRestController(LibroService libroService) {
@@ -34,19 +35,21 @@ public class RegistroLibrosRestController {
 
     /**
      * Metodo para mandar los libros a otro microservicio
+     *
      * @param libroDto el objeto libros
      * @return si se guardó o no se guardó
      */
     @PostMapping("/registro")
     public ResponseEntity<String> registroControllerLibros(@RequestBody LibroDto libroDto) {
-        try{
+        try {
             return libroService.registrarLibro(libroDto);
-        }catch(ISBNExcepction e){
+        } catch (ISBNExcepction e) {
             return ResponseEntity.badRequest().body("Formato isbn incorrecto, debe de tener entre 3 o 4 guiones, no ir juntos los guiones, empezar por 978 o 979, no acabar en guion el isbn, llevar solo numeros o guiones");
         } catch (AutorException e) {
             return ResponseEntity.badRequest().body("Nombre incorrecto, nada de numeros, caracteres raros o escribir una sola letra de nombre");
         } catch (NombreException e) {
             return ResponseEntity.badRequest().body("Formato de nombre d elibro erróneo, nada de numeros, carácteres especiales y longitud mayor a 1 letra");
+
         }
     }
 }
