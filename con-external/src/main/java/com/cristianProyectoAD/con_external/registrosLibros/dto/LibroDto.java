@@ -5,9 +5,17 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 
-
+/**
+ * Clase dto con los datos de registro de los libros
+ * @author cristian
+ * @version 1.0
+ */
 public class LibroDto {
 
+    /**
+     * variables de los libros
+     * La anotación indica que no pueden estar en blanco al mandarlo
+     */
     @NotBlank
     private String isbn;
     @NotBlank
@@ -19,6 +27,14 @@ public class LibroDto {
     @NotBlank
     private LocalDate fechaRegistro;
 
+    /**
+     * Contructor de la clase
+     * @param isbn el isbn del libro
+     * @param nombre el nombre del libro
+     * @param autor el autor del libro
+     * @param fechaLectura la fecha de lectura del libro
+     * @param fechaRegistro la fecha de registro del libro
+     */
     public LibroDto(String isbn, String nombre, String autor, LocalDate fechaLectura, LocalDate fechaRegistro) {
         this.isbn = isbn;
         this.nombre = nombre;
@@ -27,9 +43,14 @@ public class LibroDto {
         this.fechaRegistro = fechaRegistro;
     }
 
+    //constructor por defecto
     public LibroDto() {
     }
 
+    /**
+     * Getter y setter de la clase
+     * @return los atributos del libro
+     */
     public @NotBlank String getIsbn() {
         return isbn;
     }
