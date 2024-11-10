@@ -1,8 +1,7 @@
 package com.cristianProyectoAD.con_external.registrosLibros.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.time.LocalDate;
 

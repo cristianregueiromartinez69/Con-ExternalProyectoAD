@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "prd-rex", url = ("http://localhost:8081"))
 public interface PrdRexClient {
 
-    @PostMapping("prd-rex/libros/registro")
+    @PostMapping("/prd-rex/libros/registro")
     ResponseEntity<String> registrarLibro(@RequestBody LibroDto libroDto);
 }
