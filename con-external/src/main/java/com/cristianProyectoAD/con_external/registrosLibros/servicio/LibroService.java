@@ -1,13 +1,18 @@
 
 package com.cristianProyectoAD.con_external.registrosLibros.servicio;
 
+import com.cristianProyectoAD.con_external.registrosLibros.bbdd.CrudPostgresSQL;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.AutorException;
+import com.cristianProyectoAD.con_external.registrosLibros.excepcion.DuplicateIsbnException;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.ISBNExcepction;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.NombreException;
 import com.cristianProyectoAD.con_external.registrosLibros.servicio_comunicacion.PrdRexClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase servicio de registro de libros
@@ -20,6 +25,11 @@ public class LibroService {
 
     //atributo con el servicio a enviar los datos
     private final PrdRexClient prdRexClient;
+
+    //objeto para obtener la lista de isbn de la base de datos de libros
+    CrudPostgresSQL crud = new CrudPostgresSQL();
+
+    private List<String> isbnDuplicadosList = crud.getAllIsbnLibros();
 
     /**
      * Constructor de la clase
@@ -34,15 +44,17 @@ public class LibroService {
      * @param libro el objeto libro
      * @return el registro
      */
-    public ResponseEntity<String> registrarLibro(LibroDto libro) throws ISBNExcepction, AutorException, NombreException {
+    public ResponseEntity<String> registrarLibro(LibroDto libro) throws ISBNExcepction, AutorException, NombreException, DuplicateIsbnException {
         if(!authenticationIsbn(libro.getIsbn())) {
             throw new ISBNExcepction("ISBN no válido");
         } else if (!authenticationAutorLibro(libro.getAutor())) {
             throw new AutorException("Autor incorrecto");
         } else if (!authenticationBookName(libro.getNombre())) {
             throw new NombreException("Nombre  de libro incorrecto");
-        }
-        else{
+        } else if (!authenticacionDuplicateIsbn(isbnDuplicadosList, libro.getIsbn())) {
+            throw new DuplicateIsbnException("ISBN duplicado");
+        } else{
+            isbnDuplicadosList.add(libro.getIsbn());
             return prdRexClient.registrarLibro(libro);
         }
     }
@@ -300,6 +312,15 @@ public class LibroService {
      */
     public boolean authenticationBookName(String name){
         return lengthLibroName(name) && strangeCharactersLibroName(name) && checkNotLettersInBookName(name);
+    }
+
+    public boolean authenticacionDuplicateIsbn(List<String> isbnList ,String isbn){
+        for(String isbnCheck : isbnList){
+            if(isbnCheck.equals(isbn)){
+                return false;
+            }
+        }
+        return true;
     }
 
 
