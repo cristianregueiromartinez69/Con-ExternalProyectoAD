@@ -21,6 +21,10 @@ public class LibroConsultaPostresSQLRestController {
 
     @GetMapping("/isbn{isbn}")
     public ResponseEntity<LibroDto> getLibrobyISbn(@PathVariable String isbn) {
-        return libroService.getLibroByIsbn(isbn);
+        try{
+            return libroService.getLibroByIsbn(isbn);
+        } catch (No e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
