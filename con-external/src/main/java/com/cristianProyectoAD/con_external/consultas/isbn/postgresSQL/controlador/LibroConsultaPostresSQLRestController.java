@@ -1,5 +1,6 @@
 package com.cristianProyectoAD.con_external.consultas.isbn.postgresSQL.controlador;
 
+import com.cristianProyectoAD.con_external.consultas.isbn.postgresSQL.excepcion.NotFoundIsbnException;
 import com.cristianProyectoAD.con_external.consultas.isbn.postgresSQL.servicio.LibroIsbnService;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import com.cristianProyectoAD.con_external.registrosLibros.servicio.LibroService;
@@ -23,7 +24,7 @@ public class LibroConsultaPostresSQLRestController {
     public ResponseEntity<LibroDto> getLibrobyISbn(@PathVariable String isbn) {
         try{
             return libroService.getLibroByIsbn(isbn);
-        } catch (No e) {
+        } catch (NotFoundIsbnException e) {
             return ResponseEntity.notFound().build();
         }
     }
