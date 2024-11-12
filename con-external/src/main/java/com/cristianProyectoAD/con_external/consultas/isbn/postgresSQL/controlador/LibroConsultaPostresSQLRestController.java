@@ -4,6 +4,7 @@ import com.cristianProyectoAD.con_external.consultas.isbn.postgresSQL.excepcion.
 import com.cristianProyectoAD.con_external.consultas.isbn.postgresSQL.servicio.LibroIsbnService;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import com.cristianProyectoAD.con_external.registrosLibros.servicio.LibroService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +23,11 @@ public class LibroConsultaPostresSQLRestController {
 
     @GetMapping("/isbn{isbn}")
     public ResponseEntity<LibroDto> getLibrobyISbn(@PathVariable String isbn) {
-        try{
-            return libroService.getLibroByIsbn(isbn);
-        } catch (NotFoundIsbnException e) {
-            return ResponseEntity.notFound().build();
+        ResponseEntity<LibroDto> response = libroService.getLibroByIsbn(isbn);
+
+        if(response.getStatusCode() == HttpStatus.NOT_FOUND) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+        return ResponseEntity.ok(response.getBody());
     }
 }

@@ -17,9 +17,6 @@ public class LibroIsbnService {
     }
 
     public ResponseEntity<LibroDto> getLibroByIsbn(String isbn) {
-        if(prdRexClient.consultarLibro(isbn) == null) {
-            throw new NotFoundIsbnException("Libro no encontrado");
-        }
         return ResponseEntity.ok(prdRexClient.consultarLibro(isbn));
     }
 }
