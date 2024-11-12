@@ -24,6 +24,6 @@ public interface PrdRexClient {
     @PostMapping("/prd-rex/libros/registro")
     ResponseEntity<String> registrarLibro(@RequestBody LibroDto libroDto);
 
-    @GetMapping("/prd-rex/libros/postgresSQL/consulta/isbn/{isbn}")
+    @GetMapping("/prd-rex/libros/consulta/postresSQL/isbn/{isbn}")
     LibroDto consultarLibro(@PathVariable("isbn") String isbn);
 }
