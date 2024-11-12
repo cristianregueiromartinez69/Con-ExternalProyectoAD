@@ -1,7 +1,6 @@
 
 package com.cristianProyectoAD.con_external.registrosLibros.servicio;
 
-import com.cristianProyectoAD.con_external.registrosLibros.bbdd.CrudPostgresSQL;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.AutorException;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.DuplicateIsbnException;
@@ -26,10 +25,6 @@ public class LibroService {
     //atributo con el servicio a enviar los datos
     private final PrdRexClient prdRexClient;
 
-    //objeto para obtener la lista de isbn de la base de datos de libros
-    CrudPostgresSQL crud = new CrudPostgresSQL();
-
-    private List<String> isbnDuplicadosList = crud.getAllIsbnLibros();
 
     /**
      * Constructor de la clase
@@ -51,10 +46,8 @@ public class LibroService {
             throw new AutorException("Autor incorrecto");
         } else if (!authenticationBookName(libro.getNombre())) {
             throw new NombreException("Nombre  de libro incorrecto");
-        } else if (!authenticacionDuplicateIsbn(isbnDuplicadosList, libro.getIsbn())) {
-            throw new DuplicateIsbnException("ISBN duplicado");
-        } else{
-            isbnDuplicadosList.add(libro.getIsbn());
+        }  else{
+
             return prdRexClient.registrarLibro(libro);
         }
     }

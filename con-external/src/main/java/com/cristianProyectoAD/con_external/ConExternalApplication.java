@@ -12,4 +12,6 @@ public class ConExternalApplication {
 		SpringApplication.run(ConExternalApplication.class, args);
 	}
 
+	//TODO: consultas por isbn a postgres
+
 }
