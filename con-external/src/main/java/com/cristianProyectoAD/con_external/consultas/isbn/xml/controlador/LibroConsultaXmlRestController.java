@@ -19,14 +19,15 @@ public class LibroConsultaXmlRestController {
         this.libroService = libroService;
     }
 
-    @GetMapping("/isbn{isbn}")
-    public ResponseEntity<LibroDto> getLibrobyISbn(@PathVariable String isbn) {
+    @GetMapping("/isbn/{isbn}")
+    public ResponseEntity<LibroDto> getLibroByIsbn(@PathVariable String isbn) {
         ResponseEntity<LibroDto> response = libroService.getLibroByIsbnFichero(isbn);
 
-        if(response.getStatusCode() == HttpStatus.NOT_FOUND) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        if (response.getStatusCode() == HttpStatus.NOT_FOUND) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(null);
         }
-        return ResponseEntity.ok(response.getBody());
+        return response;
     }
-
 }
+

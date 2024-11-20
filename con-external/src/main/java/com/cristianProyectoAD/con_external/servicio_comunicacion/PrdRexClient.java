@@ -25,13 +25,13 @@ public interface PrdRexClient {
     ResponseEntity<String> registrarLibro(@RequestBody LibroDto libroDto);
 
     @GetMapping("/prd-rex/libros/consulta/postresSQL/isbn/{isbn}")
-    LibroDto consultarLibroIsbnPostgres(@PathVariable("isbn") String isbn);
+    ResponseEntity<LibroDto> consultarLibroIsbnPostgres(@PathVariable("isbn") String isbn);
 
     @GetMapping("/prd-rex/libros/consulta/mongoDB/isbn/{isbn}")
-    LibroDto consultaLibroIsbnMongo(@PathVariable("isbn") String isbn);
+    ResponseEntity<LibroDto> consultaLibroIsbnMongo(@PathVariable("isbn") String isbn);
 
     @GetMapping("/prd-rex/libros/consulta/ficheros/isbn/{isbn}")
-    LibroDto consultaLibroIsbnFichero(@PathVariable("isbn") String isbn);
+    ResponseEntity<LibroDto> consultaLibroIsbnFichero(@PathVariable("isbn") String isbn);
 
 
 }
