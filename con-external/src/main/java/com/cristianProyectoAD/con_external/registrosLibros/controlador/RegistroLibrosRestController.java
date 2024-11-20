@@ -50,8 +50,6 @@ public class RegistroLibrosRestController {
             return ResponseEntity.badRequest().body("Nombre incorrecto, nada de numeros, caracteres raros o escribir una sola letra de nombre");
         } catch (NombreException e) {
             return ResponseEntity.badRequest().body("Formato de nombre de libro erróneo, nada de numeros, carácteres especiales y longitud mayor a 1 letra");
-        }catch(DuplicateIsbnException dobleIsbn){
-            return ResponseEntity.badRequest().body("Error de doble isbn, vuelve a introducirlo");
         }
     }
 }

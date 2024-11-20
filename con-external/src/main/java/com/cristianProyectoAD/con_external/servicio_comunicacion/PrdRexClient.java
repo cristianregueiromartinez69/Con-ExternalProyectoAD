@@ -1,9 +1,11 @@
 
-package com.cristianProyectoAD.con_external.registrosLibros.servicio_comunicacion;
+package com.cristianProyectoAD.con_external.servicio_comunicacion;
 
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -21,4 +23,15 @@ public interface PrdRexClient {
      */
     @PostMapping("/prd-rex/libros/registro")
     ResponseEntity<String> registrarLibro(@RequestBody LibroDto libroDto);
+
+    @GetMapping("/prd-rex/libros/consulta/postresSQL/isbn/{isbn}")
+    ResponseEntity<LibroDto> consultarLibroIsbnPostgres(@PathVariable("isbn") String isbn);
+
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/isbn/{isbn}")
+    ResponseEntity<LibroDto> consultaLibroIsbnMongo(@PathVariable("isbn") String isbn);
+
+    @GetMapping("/prd-rex/libros/consulta/ficheros/isbn/{isbn}")
+    ResponseEntity<LibroDto> consultaLibroIsbnFichero(@PathVariable("isbn") String isbn);
+
+
 }
