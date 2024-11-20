@@ -11,7 +11,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(FeignException.NotFound.class)
     public ResponseEntity<String> handleFeignNotFound(FeignException.NotFound ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body("El libro  por isbn solicitado no existe o lo escribio mal: " + ex.getMessage());
+                .body("El libro  por isbn solicitado no existe o lo escribio mal: ");
     }
 
     @ExceptionHandler(Exception.class)
