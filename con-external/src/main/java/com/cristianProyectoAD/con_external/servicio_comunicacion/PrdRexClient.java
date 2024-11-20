@@ -62,5 +62,8 @@ public interface PrdRexClient {
     @GetMapping("/prd-rex/libros/consulta/postgresSQL/autor{autor}")
     ResponseEntity<List<LibroDto>> consultarLibrosAutorPostgres(@PathVariable("autor") String autor);
 
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/autor/{isbn}")
+    ResponseEntity<LibroDto> consultaLibroAutorMongo(@PathVariable("autor") String isbn);
+
 
 }
