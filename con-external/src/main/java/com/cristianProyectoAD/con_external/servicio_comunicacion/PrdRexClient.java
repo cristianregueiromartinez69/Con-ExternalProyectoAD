@@ -68,6 +68,11 @@ public interface PrdRexClient {
     @GetMapping("/prd-rex/libros/consulta/postgresSQL/nombre{nombre}")
     ResponseEntity<List<LibroDto>> consultarLibrosNombrePostgres(@PathVariable("nombre") String nombre);
 
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/nombre{nombre}")
+    ResponseEntity<List<LibroDto>> consultaLibroNombreMongo(@PathVariable("nombre") String nombre);
+
+
+
 
 
 
