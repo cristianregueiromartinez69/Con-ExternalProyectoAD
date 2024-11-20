@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 /**
  * Interfaz a donde vamos a enviar los datos del libro, a otro microservicio
  * @author cristian
@@ -32,6 +34,9 @@ public interface PrdRexClient {
 
     @GetMapping("/prd-rex/libros/consulta/ficheros/isbn/{isbn}")
     ResponseEntity<LibroDto> consultaLibroIsbnFichero(@PathVariable("isbn") String isbn);
+
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/autor{autor}")
+    ResponseEntity<List<LibroDto>> consultarLibrosAutorPostgres(@PathVariable("autor") String autor);
 
 
 }
