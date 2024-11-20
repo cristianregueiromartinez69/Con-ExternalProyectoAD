@@ -6,11 +6,10 @@ import com.cristianProyectoAD.con_external.registrosLibros.excepcion.AutorExcept
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.DuplicateIsbnException;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.ISBNExcepction;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.NombreException;
-import com.cristianProyectoAD.con_external.registrosLibros.servicio_comunicacion.PrdRexClient;
+import com.cristianProyectoAD.con_external.servicio_comunicacion.PrdRexClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

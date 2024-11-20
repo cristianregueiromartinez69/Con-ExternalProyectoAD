@@ -1,6 +1,5 @@
 package com.cristianProyectoAD.con_external.consultas.isbn.xml.controlador;
 
-import com.cristianProyectoAD.con_external.consultas.isbn.postgresSQL.servicio.LibroIsbnServicePostgres;
 import com.cristianProyectoAD.con_external.consultas.isbn.xml.servicio.LibroIsbnServiceXml;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import org.springframework.http.HttpStatus;

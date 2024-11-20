@@ -1,5 +1,5 @@
 
-package com.cristianProyectoAD.con_external.registrosLibros.servicio_comunicacion;
+package com.cristianProyectoAD.con_external.servicio_comunicacion;
 
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import org.springframework.cloud.openfeign.FeignClient;
