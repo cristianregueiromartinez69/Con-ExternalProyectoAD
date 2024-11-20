@@ -29,4 +29,9 @@ public interface PrdRexClient {
 
     @GetMapping("/prd-rex/libros/consulta/mongoDB/isbn/{isbn}")
     LibroDto consultaLibroIsbnMongo(@PathVariable("isbn") String isbn);
+
+    @GetMapping("/prd-rex/libros/consulta/ficheros/isbn/{isbn}")
+    LibroDto consultaLibroIsbnFichero(@PathVariable("isbn") String isbn);
+
+
 }
