@@ -17,6 +17,6 @@ public class LibroIsbnService {
     }
 
     public ResponseEntity<LibroDto> getLibroByIsbn(String isbn) {
-        return ResponseEntity.ok(prdRexClient.consultarLibro(isbn));
+        return ResponseEntity.ok(prdRexClient.consultarLibroIsbnPostgres(isbn));
     }
 }
