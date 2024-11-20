@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/bookhub/libros/consulta/postgresSQL")
+@RequestMapping("/bookhub/libros/consulta/mongoDB")
 public class LibroConsultaMongoDBRestController {
 
     private final LibroIsbnServiceMongo libroService;

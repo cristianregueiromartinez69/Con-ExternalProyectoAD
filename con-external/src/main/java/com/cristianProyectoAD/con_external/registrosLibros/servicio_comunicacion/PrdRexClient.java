@@ -27,6 +27,6 @@ public interface PrdRexClient {
     @GetMapping("/prd-rex/libros/consulta/postresSQL/isbn/{isbn}")
     LibroDto consultarLibroIsbnPostgres(@PathVariable("isbn") String isbn);
 
-    @GetMapping("prd-rex/libros/consulta/mongoDB/isbn/{isbn}")
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/isbn/{isbn}")
     LibroDto consultaLibroIsbnMongo(@PathVariable("isbn") String isbn);
 }
