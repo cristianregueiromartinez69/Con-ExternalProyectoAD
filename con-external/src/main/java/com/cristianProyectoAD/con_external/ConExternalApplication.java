@@ -12,6 +12,13 @@ public class ConExternalApplication {
 		SpringApplication.run(ConExternalApplication.class, args);
 	}
 
-	//TODO: consultas por autor a postgres
+
+	/*
+	  "Errores" a solucionar:
+	  1. doble etiqueta de libro en xml
+	  2. que se guarde el xml pese a que la introduccion a las bases de datos es incorrecta
+	  3. gestionar error doble clave isbn en registro
+	  4. gestionar errores de no devolver nada en consultas
+	 */
 
 }
