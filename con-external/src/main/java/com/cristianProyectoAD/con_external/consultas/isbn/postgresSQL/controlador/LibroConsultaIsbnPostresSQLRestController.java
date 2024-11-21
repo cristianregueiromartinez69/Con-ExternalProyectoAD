@@ -9,18 +9,39 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Rest controller para consultas por isbn de postgresSQL
+ * @author cristian
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/bookhub/libros/consulta/postgresSQL")
-public class LibroConsultaPostresSQLRestController {
+public class LibroConsultaIsbnPostresSQLRestController {
 
+    //variable final del servicio
     private final LibroIsbnServicePostgres libroService;
 
-    public LibroConsultaPostresSQLRestController(LibroIsbnServicePostgres libroService) {
+    /**
+     * Constructor de la clase
+     * @param libroService servicio de mongo
+     */
+    public LibroConsultaIsbnPostresSQLRestController(LibroIsbnServicePostgres libroService) {
         this.libroService = libroService;
     }
 
+    /**
+     * endpoint para mandar las consultas por isbn
+     * @param isbn el isbn a buscar
+     * @return el libro o null
+     */
     @GetMapping("/isbn{isbn}")
     public ResponseEntity<LibroDto> getLibrobyISbn(@PathVariable String isbn) {
+        /*
+          Explicacion:
+          1. creamos un objeto ResponseEntity igual a un metodo que nos va a devolver un libro por isbn
+          2. si no lo encuentra, devuelve null
+          3. si no devuelve el libro por isbn
+         */
         ResponseEntity<LibroDto> response = libroService.getLibroByIsbnPostgres(isbn);
 
         if(response.getStatusCode() == HttpStatus.NOT_FOUND) {
