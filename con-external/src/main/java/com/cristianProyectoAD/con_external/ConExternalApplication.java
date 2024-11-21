@@ -15,9 +15,8 @@ public class ConExternalApplication {
 
 	  /*
 	  "Errores" a solucionar:
-	  1. que se guarde el xml pese a que la introduccion a las bases de datos es incorrecta
-	  2. gestionar error doble clave isbn en registro
-	  3. gestionar errores de no devolver nada en consultas
+	  1. gestionar error doble clave isbn en registro en base de datos
+	  2. gestionar errores de no devolver nada en consultas que no devuelven nada
 	 */
 
 }
