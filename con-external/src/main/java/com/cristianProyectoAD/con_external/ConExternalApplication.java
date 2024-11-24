@@ -12,6 +12,13 @@ public class ConExternalApplication {
 		SpringApplication.run(ConExternalApplication.class, args);
 	}
 
-	//TODO: consultas por autor a postgres
+
+	  /*
+	  "Errores" a solucionar:
+	  1. gestionar errores de no devolver nada en consultas que no devuelven nada
+	  2. (Opcional) hacer algo con fecha lectura
+	 */
+
+	//TODO: solucionar que devuelva badrequest si no hay nada que devolver en consulta isbn
 
 }

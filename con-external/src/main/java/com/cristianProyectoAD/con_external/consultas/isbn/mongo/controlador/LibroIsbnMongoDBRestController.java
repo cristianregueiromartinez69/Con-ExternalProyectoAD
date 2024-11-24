@@ -2,7 +2,6 @@ package com.cristianProyectoAD.con_external.consultas.isbn.mongo.controlador;
 
 import com.cristianProyectoAD.con_external.consultas.isbn.mongo.servicio.LibroIsbnServiceMongo;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/bookhub/libros/consulta/mongoDB")
-public class LibroConsultaMongoDBRestController {
+public class LibroIsbnMongoDBRestController {
 
     //variable final del servicio
     private final LibroIsbnServiceMongo libroService;
@@ -25,7 +24,7 @@ public class LibroConsultaMongoDBRestController {
      * Constructor de la clase
      * @param libroService servicio de mongo
      */
-    public LibroConsultaMongoDBRestController(LibroIsbnServiceMongo libroService) {
+    public LibroIsbnMongoDBRestController(LibroIsbnServiceMongo libroService) {
         this.libroService = libroService;
     }
 
@@ -43,10 +42,6 @@ public class LibroConsultaMongoDBRestController {
           3. si no devuelve el libro por isbn
          */
         ResponseEntity<LibroDto> response = libroService.getLibroByIsbnMongo(isbn);
-
-        if(response.getStatusCode() == HttpStatus.NOT_FOUND) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
         return ResponseEntity.ok(response.getBody());
     }
 }

@@ -7,6 +7,7 @@ import com.cristianProyectoAD.con_external.registrosLibros.excepcion.DuplicateIs
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.ISBNExcepction;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.NombreException;
 import com.cristianProyectoAD.con_external.registrosLibros.servicio.LibroService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,6 +51,8 @@ public class RegistroLibrosRestController {
             return ResponseEntity.badRequest().body("Nombre incorrecto, nada de numeros, caracteres raros o escribir una sola letra de nombre");
         } catch (NombreException e) {
             return ResponseEntity.badRequest().body("Formato de nombre de libro erróneo, nada de numeros, carácteres especiales y longitud mayor a 1 letra");
+        }catch(DuplicateIsbnException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }

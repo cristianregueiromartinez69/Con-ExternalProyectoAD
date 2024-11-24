@@ -7,6 +7,7 @@ import com.cristianProyectoAD.con_external.registrosLibros.excepcion.DuplicateIs
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.ISBNExcepction;
 import com.cristianProyectoAD.con_external.registrosLibros.excepcion.NombreException;
 import com.cristianProyectoAD.con_external.servicio_comunicacion.PrdRexClient;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -38,17 +39,15 @@ public class LibroService {
      * @param libro el objeto libro
      * @return el registro
      */
-    public ResponseEntity<String> registrarLibro(LibroDto libro) throws ISBNExcepction, AutorException, NombreException, DuplicateIsbnException {
+    public ResponseEntity<String> registrarLibro(LibroDto libro) throws ISBNExcepction, AutorException, NombreException {
         if(!authenticationIsbn(libro.getIsbn())) {
             throw new ISBNExcepction("ISBN no válido");
         } else if (!authenticationAutorLibro(libro.getAutor())) {
             throw new AutorException("Autor incorrecto");
         } else if (!authenticationBookName(libro.getNombre())) {
             throw new NombreException("Nombre  de libro incorrecto");
-        }  else{
-
-            return prdRexClient.registrarLibro(libro);
         }
+        return prdRexClient.registrarLibro(libro);
     }
 
     /**
