@@ -13,12 +13,12 @@ public class ConExternalApplication {
 	}
 
 
-	  /*
-	  "Errores" a solucionar:
-	  1. gestionar errores de no devolver nada en consultas que no devuelven nada
-	  2. (Opcional) hacer algo con fecha lectura
-	 */
+	//TODO: hacer consultas entre fechas de registro
 
-	//TODO: solucionar que devuelva badrequest si no hay nada que devolver en consulta isbn
+	/*
+	  (Para Más adelante)
+	  1. Mejorar control de errores de no devolver nada
+	  2. hacer algo con fecha lectura
+	 */
 
 }
