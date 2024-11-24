@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -70,6 +71,10 @@ public interface PrdRexClient {
 
     @GetMapping("/prd-rex/libros/consulta/mongoDB/nombre{nombre}")
     ResponseEntity<List<LibroDto>> consultaLibroNombreMongo(@PathVariable("nombre") String nombre);
+
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro{fechaInicio}/{fechaFin}")
+    ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroPostgres(@PathVariable("fechaInicio") LocalDate fecharegistro ,
+                                                                      @PathVariable("fechaFin") LocalDate fechaFin);
 
 
 
