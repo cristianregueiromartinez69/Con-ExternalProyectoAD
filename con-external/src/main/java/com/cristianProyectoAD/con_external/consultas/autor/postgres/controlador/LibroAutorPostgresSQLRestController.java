@@ -24,10 +24,6 @@ public class LibroAutorPostgresSQLRestController {
     @GetMapping("/autor{autor}")
     public ResponseEntity<List<LibroDto>> getLibroByAutor(@PathVariable String autor) {
         ResponseEntity<List<LibroDto>> response = libroAutorServicePostgres.getLibrosPostgresByAutor(autor);
-
-        if(response.getStatusCode() == HttpStatus.NOT_FOUND){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
     }
 
