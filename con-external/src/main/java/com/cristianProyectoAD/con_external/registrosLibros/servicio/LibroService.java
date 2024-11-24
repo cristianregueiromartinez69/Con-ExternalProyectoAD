@@ -39,16 +39,13 @@ public class LibroService {
      * @param libro el objeto libro
      * @return el registro
      */
-    public ResponseEntity<String> registrarLibro(LibroDto libro) throws ISBNExcepction, AutorException, NombreException, DuplicateIsbnException {
-        ResponseEntity<String> response = prdRexClient.registrarLibro(libro);
+    public ResponseEntity<String> registrarLibro(LibroDto libro) throws ISBNExcepction, AutorException, NombreException {
         if(!authenticationIsbn(libro.getIsbn())) {
             throw new ISBNExcepction("ISBN no válido");
         } else if (!authenticationAutorLibro(libro.getAutor())) {
             throw new AutorException("Autor incorrecto");
         } else if (!authenticationBookName(libro.getNombre())) {
             throw new NombreException("Nombre  de libro incorrecto");
-        }  else if(response.getStatusCode() == HttpStatus.BAD_REQUEST){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response.getBody());
         }
         return prdRexClient.registrarLibro(libro);
     }

@@ -19,4 +19,6 @@ public class ConExternalApplication {
 	  2. gestionar errores de no devolver nada en consultas que no devuelven nada
 	 */
 
+	//TODO: solucionar que no de error 500 en registro de doble isbn
+
 }
