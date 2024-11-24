@@ -4,10 +4,7 @@ package com.cristianProyectoAD.con_external.servicio_comunicacion;
 import com.cristianProyectoAD.con_external.registrosLibros.dto.LibroDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -72,9 +69,9 @@ public interface PrdRexClient {
     @GetMapping("/prd-rex/libros/consulta/mongoDB/nombre{nombre}")
     ResponseEntity<List<LibroDto>> consultaLibroNombreMongo(@PathVariable("nombre") String nombre);
 
-    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro/{fechaInicio}/{fechaFin}")
-    ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroPostgres(@PathVariable("fechaInicio") LocalDate fechaInicio ,
-                                                                      @PathVariable("fechaFin") LocalDate fechaFin);
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro")
+    ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroPostgres(@RequestParam("fechaInicio") LocalDate fechaInicio ,
+                                                                      @RequestParam("fechaFin") LocalDate fechaFin);
 
 
 
