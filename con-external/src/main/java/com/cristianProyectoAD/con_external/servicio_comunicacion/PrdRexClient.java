@@ -72,8 +72,8 @@ public interface PrdRexClient {
     @GetMapping("/prd-rex/libros/consulta/mongoDB/nombre{nombre}")
     ResponseEntity<List<LibroDto>> consultaLibroNombreMongo(@PathVariable("nombre") String nombre);
 
-    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro{fechaInicio}/{fechaFin}")
-    ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroPostgres(@PathVariable("fechaInicio") LocalDate fecharegistro ,
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro/{fechaInicio}/{fechaFin}")
+    ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroPostgres(@PathVariable("fechaInicio") LocalDate fechaInicio ,
                                                                       @PathVariable("fechaFin") LocalDate fechaFin);
 
 
