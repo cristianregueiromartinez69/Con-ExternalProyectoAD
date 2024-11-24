@@ -21,7 +21,7 @@ public class LibroFechaRegistroPostgresRestController {
         this.libroFechaRegistroServicePostgres = libroFechaRegistroServicePostgres;
     }
 
-    @GetMapping("/{fechaInicio}/{fechaFin}")
+    @GetMapping("/fecharegistro{fechaInicio}/{fechaFin}")
     public ResponseEntity<List<LibroDto>> getLibrosPostgresByFechaRegistro(@PathVariable LocalDate fechaInicio, @PathVariable LocalDate fechaFin) {
         return libroFechaRegistroServicePostgres.getLibrosByFechaRegistroPostgres(fechaInicio, fechaFin);
     }
