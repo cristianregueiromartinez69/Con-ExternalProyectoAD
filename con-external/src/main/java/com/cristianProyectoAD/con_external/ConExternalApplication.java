@@ -15,10 +15,10 @@ public class ConExternalApplication {
 
 	  /*
 	  "Errores" a solucionar:
-	  1. gestionar error doble clave isbn en registro en base de datos
-	  2. gestionar errores de no devolver nada en consultas que no devuelven nada
+	  1. gestionar errores de no devolver nada en consultas que no devuelven nada
+	  2. (Opcional) hacer algo con fecha lectura
 	 */
 
-	//TODO: solucionar que no de error 500 en registro de doble isbn
+	//TODO: solucionar que devuelva badrequest si no hay nada que devolver en consulta isbn
 
 }
