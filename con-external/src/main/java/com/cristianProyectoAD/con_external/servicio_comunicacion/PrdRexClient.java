@@ -73,6 +73,10 @@ public interface PrdRexClient {
     ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroPostgres(@RequestParam("fechaInicio") LocalDate fechaInicio ,
                                                                       @RequestParam("fechaFin") LocalDate fechaFin);
 
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/fecharegistro")
+    ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroMongo(@RequestParam("fechaInicio") LocalDate fechaInicio,
+                                                                   @RequestParam("fechaFin") LocalDate fechaFin);
+
 
 
 
