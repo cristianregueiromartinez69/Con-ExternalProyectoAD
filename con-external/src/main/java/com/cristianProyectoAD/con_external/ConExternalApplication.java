@@ -13,12 +13,5 @@ public class ConExternalApplication {
 	}
 
 
-	//TODO: hacer consultas entre fechas de registro
-
-	/*
-	  (Para Más adelante)
-	  1. Mejorar control de errores de no devolver nada
-	  2. hacer algo con fecha lectura
-	 */
 
 }
