@@ -118,7 +118,7 @@ public interface PrdRexClient {
      * @param fechaFin Fecha de fin para el rango de consulta
      * @return lista de libros encontrados dentro del rango de fechas en PostgreSQL
      */
-    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro")
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fechalectura")
     ResponseEntity<List<LibroDto>> consultaLibroFechaLecturaPostgres(@RequestParam("fechaInicio") LocalDate fechaInicio ,
                                                                       @RequestParam("fechaFin") LocalDate fechaFin);
 
