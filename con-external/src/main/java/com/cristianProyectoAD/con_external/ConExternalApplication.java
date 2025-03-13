@@ -12,6 +12,5 @@ public class ConExternalApplication {
 		SpringApplication.run(ConExternalApplication.class, args);
 	}
 
-	//TODO: hacer consultas entre fechas de lectura para mongoDB
 
 }
