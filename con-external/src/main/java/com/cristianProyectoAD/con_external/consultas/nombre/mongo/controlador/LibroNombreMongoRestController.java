@@ -39,7 +39,7 @@ public class LibroNombreMongoRestController {
      * @return una lista de objetos {@link LibroDto} que representan los libros encontrados,
      * encapsulados en una respuesta HTTP.
      */
-    @GetMapping("/nombre{nombre}")
+    @GetMapping("/nombre/{nombre}")
     public ResponseEntity<List<LibroDto>> getLibroNombreMongo(@PathVariable String nombre) {
         return libroNombreServiceMongo.getLibrosByNombreMongo(nombre);
     }

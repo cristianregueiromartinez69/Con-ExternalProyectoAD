@@ -33,7 +33,7 @@ public class LibroIsbnMongoDBRestController {
      * @param isbn el isbn a buscar
      * @return el libro o null
      */
-    @GetMapping("/isbn{isbn}")
+    @GetMapping("/isbn/{isbn}")
     public ResponseEntity<LibroDto> getLibrobyISbn(@PathVariable String isbn) {
         /*
           Explicacion:

@@ -57,7 +57,7 @@ public interface PrdRexClient {
      * @param autor El nombre del autor.
      * @return ResponseEntity con una lista de libros del autor si se encuentran.
      */
-    @GetMapping("/prd-rex/libros/consulta/postgresSQL/autor{autor}")
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/autor/{autor}")
     ResponseEntity<List<LibroDto>> consultarLibrosAutorPostgres(@PathVariable("autor") String autor);
 
     /**
@@ -66,7 +66,7 @@ public interface PrdRexClient {
      * @param autor El nombre del autor
      * @return lista de libros encontrados del autor en MongoDB
      */
-    @GetMapping("/prd-rex/libros/consulta/mongoDB/autor{autor}")
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/autor/{autor}")
     ResponseEntity<List<LibroDto>> consultaLibroAutorMongo(@PathVariable("autor") String autor);
 
     /**
@@ -75,7 +75,7 @@ public interface PrdRexClient {
      * @param nombre El nombre del libro
      * @return lista de libros encontrados con el nombre proporcionado en PostgreSQL
      */
-    @GetMapping("/prd-rex/libros/consulta/postgresSQL/nombre{nombre}")
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/nombre/{nombre}")
     ResponseEntity<List<LibroDto>> consultarLibrosNombrePostgres(@PathVariable("nombre") String nombre);
 
     /**
@@ -84,7 +84,7 @@ public interface PrdRexClient {
      * @param nombre El nombre del libro
      * @return lista de libros encontrados con el nombre proporcionado en MongoDB
      */
-    @GetMapping("/prd-rex/libros/consulta/mongoDB/nombre{nombre}")
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/nombre/{nombre}")
     ResponseEntity<List<LibroDto>> consultaLibroNombreMongo(@PathVariable("nombre") String nombre);
 
 
@@ -109,6 +109,34 @@ public interface PrdRexClient {
     @GetMapping("/prd-rex/libros/consulta/mongoDB/fecharegistro")
     ResponseEntity<List<LibroDto>> consultaLibroFechaRegistroMongo(@RequestParam("fechaInicio") LocalDate fechaInicio,
                                                                    @RequestParam("fechaFin") LocalDate fechaFin);
+
+
+    /**
+     * Consulta libros en PostgreSQL por rango de fechas de lectura.
+     *
+     * @param fechaInicio Fecha de inicio para el rango de consulta
+     * @param fechaFin Fecha de fin para el rango de consulta
+     * @return lista de libros encontrados dentro del rango de fechas en PostgreSQL
+     */
+    @GetMapping("/prd-rex/libros/consulta/postgresSQL/fechalectura")
+    ResponseEntity<List<LibroDto>> consultaLibroFechaLecturaPostgres(@RequestParam("fechaInicio") LocalDate fechaInicio ,
+                                                                      @RequestParam("fechaFin") LocalDate fechaFin);
+
+
+    /**
+     * Consulta libros en MongoDB por rango de fechas de lectura.
+     *
+     * @param fechaInicio Fecha de inicio para el rango de consulta
+     * @param fechaFin Fecha de fin para el rango de consulta
+     * @return lista de libros encontrados dentro del rango de fechas en MongoDB
+     */
+    @GetMapping("/prd-rex/libros/consulta/mongoDB/fechalectura")
+    ResponseEntity<List<LibroDto>> consultaLibroFechaLecturaMongo(@RequestParam("fechaInicio") LocalDate fechaInicio,
+                                                                   @RequestParam("fechaFin") LocalDate fechaFin);
+
+
+
+
 
 
 

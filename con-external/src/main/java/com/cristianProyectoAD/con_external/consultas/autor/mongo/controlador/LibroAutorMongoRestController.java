@@ -41,7 +41,7 @@ public class LibroAutorMongoRestController {
      * @return Una respuesta HTTP que contiene una lista de objetos {@link LibroDto} con los libros encontrados,
      * o un estado HTTP adecuado si no se encuentran resultados.
      */
-    @GetMapping("/autor{autor}")
+    @GetMapping("/autor/{autor}")
     public ResponseEntity<List<LibroDto>> getLibroByAutor(@PathVariable String autor) {
         ResponseEntity<List<LibroDto>> response = libroAutorServiceMongo.getLibrosMongoByAutor(autor);
         return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
